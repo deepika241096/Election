@@ -1,0 +1,26 @@
+<br>
+  <%= form_tag @election, :method => "get" do %>
+    <%= label_tag(:search, "Search_by:") %>
+    <%= text_field_tag(:search) %>
+    <%= submit_tag("Search") %>
+  <% end %>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Election name</th>
+        <th>Election category</th>
+        <th>Votes</th>
+        <th>Eligible users</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @elections.each do |election| %>
+        <tr>
+          <td><%= election.name %></td>
+          <td><%= election.category %></td>
+          <td><%= election.votes.count %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
